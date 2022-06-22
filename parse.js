@@ -170,14 +170,14 @@ const parseResult1 = [
 //   const rslt = parseResult1[parseResultIndex].logIntList;
 //   return `${str}\n${rslt}`;
 // };
-
 // console.log(result(0));
 // console.log(result(1));
+
 console.log(parseResult1[0].logIntList);
 console.log(parseResult1[1].logIntList);
   
   // console.log(traffic[0].match(/(?<=Input  bytes  :).+?(?=\n)/)[0].split(' ').filter(Boolean)[0])
-  function state(state) {
+function state(state) {
     var n = state.split(" ");
     return n[n.length - 1];
 
