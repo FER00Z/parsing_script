@@ -15,7 +15,7 @@ const trafficInError = data.match(/Input errors:\n((?:.*\n){1,2})/);
 const trafficOutError = data.match(/Output errors:\n((?:.*\n){1,2})/);
 const ipAddr = data.match(/(?:(?:\d{0,3}\.\d{0,3}){3})/)[0]; //get the IP address only 4 octets
 const ipMask = data.match(/(?<=(?:(?:[0-9]{0,3}\.[0-9]{0,3}){3}))(?:\/[0-9]{0,2})/)[0]; //get the mask
-const netAddr = `${ipAddr.match(/(?:(?:[0-9]{0,3}\.[0-9]{0,3}){2})/)[0]}.0${ipMask}`; //gets only 3 octets, adds 0 and adds the mask
+const netAddr = `${ipAddr.match(/(?:(?:[0-9]{0,3}\.[0-9]{0,3}){2})/)[0]}.0${ipMask}`; //gets only 3 octets from ipAddr, replaces the last octet by 0 and adds the ipMask
   
 const parseResult1 = [
     {
@@ -176,8 +176,8 @@ const parseResult1 = [
 // console.log(result(0));
 // console.log(result(1));
 
-console.log(parseResult1[0].logIntList);
-console.log(parseResult1[1].logIntList);
+console.log(parseResult1[0]);
+// console.log(parseResult1[0].logIntList);
   
   // console.log(traffic[0].match(/(?<=Input  bytes  :).+?(?=\n)/)[0].split(' ').filter(Boolean)[0])
   function state(state) {
